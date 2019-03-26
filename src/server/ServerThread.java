@@ -29,13 +29,15 @@ public class ServerThread implements Runnable {
             String starterLine = in.readLine();
             HttpRequest request = new HttpRequest(starterLine);
 
-//            String header = "";
-//            while (true) {
-//                String line = in.readLine();
-//                header += line;
-//                if (line.trim().equals("")) break;
-//                header += "\r\n";
-//            }
+            String header = "";
+            while (true) {
+                String line = in.readLine();
+                header += line;
+                if (line.trim().equals("")) break;
+                header += "\r\n";
+            }
+            request.setHeader(header);
+
             if (request.getMethod().equals("GET")) {
                 if (request.getPath().equals("/qoute")) {
                     out.println(getQuoteResponse());

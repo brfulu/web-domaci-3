@@ -4,6 +4,7 @@ public class HttpRequest {
     private String method;
     private String path;
     private String version;
+    private String header;
 
     public HttpRequest(String starterLine) {
         String[] tokens = starterLine.split(" ");
@@ -23,4 +24,10 @@ public class HttpRequest {
     public String getVersion() {
         return version;
     }
+
+    public void setHeader(String header) {
+        this.header = header;
+    }
 }
+
+
